@@ -1,0 +1,72 @@
+%--------------------------------------------------------------------------
+
+%Path Determination Algorithm Prototype
+
+%Project D.R.A.G.O.N. Navigation Software
+
+%Proprietary Information enclosed
+
+
+%Script generates shortest path given set grid and obstacles using three
+%different algorithms to compare accuracy and computation time. The
+%algorithms used include the following:
+
+%                            -Dijkstra's Algorithm
+%                            -A* Algorithm
+%            
+
+%Inputs (ideally):
+%                            -Topo map with nodes/obstacles
+%                            -Heat map (science weighting)
+%                            -Constraints
+%                            -Waypoints
+
+%Outputs (ideally):
+%                            -Ideal path for rover
+%                            -Coordinates for rover command
+
+%Created on 9/24/2018 by Ryan Stewart
+%Edited on 10/9/2018 by Ryan Stewart
+
+%Major revisions: (starting 10/9/2018)
+
+%                            -Waypoint addition work (10/9/2018)
+
+%--------------------------------------------------------------------------
+
+%Clean house
+close all;clearvars;clc;
+
+%Generate the test map and obstacles
+map = int8(zeros(100,100));
+map(3,3) = 1; map(2,2) = 1; map(3,2) = 1; map(4,2) = 1; map(2,3) = 1;
+
+
+map(8,5) = 1; map(7,5) = 1; map(6,5) = 1; 
+map(5,5) = 1; map(4,5) = 1; map(4,6) = 1;
+
+map(14,12) = 1; map(16,12)=1; map(15,12)=1;
+map(13,12) = 1; map(12,12) = 1; map(11,12) = 1;
+map(11,11) = 1; map(11,10) = 1; map(10,10) = 1;
+map(9,10) = 1; map(8,10) = 1; map(7,10) = 1;
+map(5:16,5) = 1;
+map(12:50,35) = 1; map(1:40,42)=1; 
+
+map(90,35:89) = 1; map(1:55,73)=1;
+map(60:80,1:24) = 1; map(80:95,80:100)=1;
+
+start = [1 1];
+waypoints = [10 20;30 10;35 21; 20 60; 40 50; 70 60; 10 80; 50 95;...
+     80 55; 100 100]; %set waypoint vector --> 100x100 case!!
+NF = 4;
+
+%Call A* calculation function
+optimal_f = A_Star(map,waypoints,NF,start);
+
+
+%% Plotting section --> Not necessary except for PDR and testing!!!
+
+%Plot the map layout
+filename = 'testAnimated_waypoint2.gif';
+A_Star_plot(map, waypoints,optimal_f,filename)
+
