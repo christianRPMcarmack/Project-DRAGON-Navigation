@@ -1,0 +1,57 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[light]{iwona}
+\usepackage[T1]{fontenc}
+\usepackage{newtxsf} % Make math pretty
+\usepackage{graphicx}
+\usepackage{float}
+%\usepackage[paperwidth=80in]{geometry}
+
+\title{Testing}
+\author{Dawson Beatty}
+
+
+\begin{document}
+%\maketitle
+
+\begin{equation*}
+    (\sigma_x, \sigma_y) = f(\, \{ x_i, y_i \}, \hspace{.3cm} \{ r_i \},\hspace{.3cm} \{ \sigma_{xi}, \sigma_{yi} \}, \hspace{.3cm} \{\sigma_{ri} \} \,)
+\end{equation*}
+
+\vspace{1cm}
+
+\renewcommand{\arraystretch}{1.5} 
+\begin{tabular}{ll}
+    $(\sigma_x, \sigma_y)$ & Rover position uncertainty (require $\leq 1$m) \\
+    $\{ x_i, y_i \}_{n=1}^3$ & Positions of deployed pods \\  %(contributes to Dilution of Precision error) \\
+    $\{ r_i \}_{n=1}^3$ & Distance to deployed pods \\ %(contributes to Dilution of Precision error) \\
+    $\{ \sigma_{xi}, \sigma_{yi} \}_{n=1}^3$ & Uncertainty in pod location \\ % (depends on deployment mechanism) \\
+    $\{ \sigma_{ri} \}_{n=1}^3$& Uncertainty in range measurement  
+\end{tabular}
+
+%\begin{description}
+%    \item[$(\sigma_x, \sigma_y)$] Rover position uncertainty (require less than 1m)
+ %   \item[$\{ x_i, y_i \}_{n=1}^3$] Positions of deployed pods  (contributes to Dilution of Precision error)
+ %   \item[$\{ r_i \}_{n=1}^3$] Distance to deployed pods (contributes to Dilution of Precision error)
+%    \item[$\{ \sigma_{xi}, \sigma_{yi} \}_{n=1}^3$] Uncertainty in pod location (depends on deployment mechanism)
+%    \item[$\{ \sigma_{ri} \}_{n=1}^3$] Uncertainty in range measurement   
+%\end{description}
+
+%\begin{align*}
+%    x &= \frac{y_{1} y_{2}^{2} - {\left(y_{1} - y_{2}\right)} y_{3}^{2} - {\left(r_{2}^{2} - r_{3}^{2} - x_{2}^{2} + x_{3}^{2}\right)} y_{1} + {\left(r_{1}^{2} - r_{3}^{2} - x_{1}^{2} + x_{3}^{2} - y_{1}^{2}\right)} y_{2} - {\left(r_{1}^{2} - r_{2}^{2} - x_{1}^{2} + x_{2}^{2} - y_{1}^{2} + y_{2}^{2}\right)} y_{3}}{2 \, {\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}} \\
+%    y &= -\frac{x_{1} x_{2}^{2} - {\left(x_{1} - x_{2}\right)} x_{3}^{2} - {\left(x_{2} - x_{3}\right)} y_{1}^{2} + {\left(x_{1} - x_{3}\right)} y_{2}^{2} - {\left(x_{1} - x_{2}\right)} y_{3}^{2} - {\left(r_{2}^{2} - r_{3}^{2}\right)} x_{1} + {\left(r_{1}^{2} - r_{3}^{2} - x_{1}^{2}\right)} x_{2} - {\left(r_{1}^{2} - r_{2}^{2} - x_{1}^{2} + x_{2}^{2}\right)} x_{3}}{2 \, {\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}}
+%\end{align*}
+
+%$\sigma_x$ is the root of the sum of all these:
+
+%\begin{equation*}
+%    \frac{\partial g}{\partial x_1} = \frac{1}{4} \, \sigma_{x_{1}}^{2} {\left(\frac{2 \, {\left(x_{1} y_{2} - x_{1} y_{3}\right)}}{{\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}} - \frac{{\left(y_{1} y_{2}^{2} - {\left(y_{1} - y_{2}\right)} y_{3}^{2} - {\left(r_{2}^{2} - r_{3}^{2} - x_{2}^{2} + x_{3}^{2}\right)} y_{1} + {\left(r_{1}^{2} - r_{3}^{2} - x_{1}^{2} + x_{3}^{2} - y_{1}^{2}\right)} y_{2} - {\left(r_{1}^{2} - r_{2}^{2} - x_{1}^{2} + x_{2}^{2} - y_{1}^{2} + y_{2}^{2}\right)} y_{3}\right)} {\left(y_{2} - y_{3}\right)}}{{\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}^{2}}\right)}^{2}
+%\end{equation*}
+
+%\begin{equation*}
+%\frac{1}{2} \, \sqrt{\sigma_{y_{3}}^{2} {\left(\frac{r_{1}^{2} - r_{2}^{2} - x_{1}^{2} + x_{2}^{2} - y_{1}^{2} + y_{2}^{2} + 2 \, {\left(y_{1} - y_{2}\right)} y_{3}}{{\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}} + \frac{{\left(y_{1} y_{2}^{2} - {\left(y_{1} - y_{2}\right)} y_{3}^{2} - {\left(r_{2}^{2} - r_{3}^{2} - x_{2}^{2} + x_{3}^{2}\right)} y_{1} + {\left(r_{1}^{2} - r_{3}^{2} - x_{1}^{2} + x_{3}^{2} - y_{1}^{2}\right)} y_{2} - {\left(r_{1}^{2} - r_{2}^{2} - x_{1}^{2} + x_{2}^{2} - y_{1}^{2} + y_{2}^{2}\right)} y_{3}\right)} {\left(x_{1} - x_{2}\right)}}{{\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}^{2}}\right)}^{2} + \sigma_{y_{2}}^{2} {\left(\frac{r_{1}^{2} - r_{3}^{2} - x_{1}^{2} + x_{3}^{2} - y_{1}^{2} + 2 \, y_{1} y_{2} - 2 \, y_{2} y_{3} + y_{3}^{2}}{{\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}} + \frac{{\left(y_{1} y_{2}^{2} - {\left(y_{1} - y_{2}\right)} y_{3}^{2} - {\left(r_{2}^{2} - r_{3}^{2} - x_{2}^{2} + x_{3}^{2}\right)} y_{1} + {\left(r_{1}^{2} - r_{3}^{2} - x_{1}^{2} + x_{3}^{2} - y_{1}^{2}\right)} y_{2} - {\left(r_{1}^{2} - r_{2}^{2} - x_{1}^{2} + x_{2}^{2} - y_{1}^{2} + y_{2}^{2}\right)} y_{3}\right)} {\left(x_{1} - x_{3}\right)}}{{\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}^{2}}\right)}^{2} + \sigma_{y_{1}}^{2} {\left(\frac{r_{2}^{2} - r_{3}^{2} - x_{2}^{2} + x_{3}^{2} + 2 \, y_{1} y_{2} - y_{2}^{2} - 2 \, y_{1} y_{3} + y_{3}^{2}}{{\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}} + \frac{{\left(y_{1} y_{2}^{2} - {\left(y_{1} - y_{2}\right)} y_{3}^{2} - {\left(r_{2}^{2} - r_{3}^{2} - x_{2}^{2} + x_{3}^{2}\right)} y_{1} + {\left(r_{1}^{2} - r_{3}^{2} - x_{1}^{2} + x_{3}^{2} - y_{1}^{2}\right)} y_{2} - {\left(r_{1}^{2} - r_{2}^{2} - x_{1}^{2} + x_{2}^{2} - y_{1}^{2} + y_{2}^{2}\right)} y_{3}\right)} {\left(x_{2} - x_{3}\right)}}{{\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}^{2}}\right)}^{2} + \sigma_{x_{2}}^{2} {\left(\frac{2 \, {\left(x_{2} y_{1} - x_{2} y_{3}\right)}}{{\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}} - \frac{{\left(y_{1} y_{2}^{2} - {\left(y_{1} - y_{2}\right)} y_{3}^{2} - {\left(r_{2}^{2} - r_{3}^{2} - x_{2}^{2} + x_{3}^{2}\right)} y_{1} + {\left(r_{1}^{2} - r_{3}^{2} - x_{1}^{2} + x_{3}^{2} - y_{1}^{2}\right)} y_{2} - {\left(r_{1}^{2} - r_{2}^{2} - x_{1}^{2} + x_{2}^{2} - y_{1}^{2} + y_{2}^{2}\right)} y_{3}\right)} {\left(y_{1} - y_{3}\right)}}{{\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}^{2}}\right)}^{2} + \sigma_{x_{3}}^{2} {\left(\frac{2 \, {\left(x_{3} y_{1} - x_{3} y_{2}\right)}}{{\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}} - \frac{{\left(y_{1} y_{2}^{2} - {\left(y_{1} - y_{2}\right)} y_{3}^{2} - {\left(r_{2}^{2} - r_{3}^{2} - x_{2}^{2} + x_{3}^{2}\right)} y_{1} + {\left(r_{1}^{2} - r_{3}^{2} - x_{1}^{2} + x_{3}^{2} - y_{1}^{2}\right)} y_{2} - {\left(r_{1}^{2} - r_{2}^{2} - x_{1}^{2} + x_{2}^{2} - y_{1}^{2} + y_{2}^{2}\right)} y_{3}\right)} {\left(y_{1} - y_{2}\right)}}{{\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}^{2}}\right)}^{2} + \sigma_{x_{1}}^{2} {\left(\frac{2 \, {\left(x_{1} y_{2} - x_{1} y_{3}\right)}}{{\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}} - \frac{{\left(y_{1} y_{2}^{2} - {\left(y_{1} - y_{2}\right)} y_{3}^{2} - {\left(r_{2}^{2} - r_{3}^{2} - x_{2}^{2} + x_{3}^{2}\right)} y_{1} + {\left(r_{1}^{2} - r_{3}^{2} - x_{1}^{2} + x_{3}^{2} - y_{1}^{2}\right)} y_{2} - {\left(r_{1}^{2} - r_{2}^{2} - x_{1}^{2} + x_{2}^{2} - y_{1}^{2} + y_{2}^{2}\right)} y_{3}\right)} {\left(y_{2} - y_{3}\right)}}{{\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}^{2}}\right)}^{2} + \frac{4 \, {\left(r_{1} y_{2} - r_{1} y_{3}\right)}^{2} \sigma_{r_{1}}^{2}}{{\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}^{2}} + \frac{4 \, {\left(r_{2} y_{1} - r_{2} y_{3}\right)}^{2} \sigma_{r_{2}}^{2}}{{\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}^{2}} + \frac{4 \, {\left(r_{3} y_{1} - r_{3} y_{2}\right)}^{2} \sigma_{r_{3}}^{2}}{{\left({\left(x_{2} - x_{3}\right)} y_{1} - {\left(x_{1} - x_{3}\right)} y_{2} + {\left(x_{1} - x_{2}\right)} y_{3}\right)}^{2}}}
+%\end{equation*}
+
+
+
+\end{document}
