@@ -1,0 +1,24 @@
+###########################################################################
+# TITLE: GPStoLocalCoor.py
+# AUTHOR: Christian Carmack
+# CREATED: 10/24/18
+# MODIFIED: 10/24/18
+# NOTES: Convert GPS Coordinates to a change in local coordinates
+# CREDIT: User Floris on Stack Overflow
+###########################################################################
+
+# Initialization
+import math
+
+# Function  
+def GPStoLocalCoor( lat1,lat2,lon1,lon2):
+    dx = ((lon2-lon1)*40000*math.cos((lat1+lat2)*math.pi/360)/360)/1000 # change in x-coordinates [meters]
+    dy = ((lat1-lat2)*40000/360)/1000                                   # change in y-coordinates [meters]
+    print(dx)
+    print(dy)
+    return
+
+## Example: 
+# GPStoLocalCoor(lat1 = 1,lat2 = 2, lon1 = 1, lon2 = 2)
+
+
